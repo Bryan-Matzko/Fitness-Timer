@@ -71,7 +71,7 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     {
         if component == 0 && pickerView == durationPicker
         {
-            selectedTimer.durationMinutes = minutesList[row]
+            selectedTimer.durationWorkMinutes = minutesList[row]
         }
         else if component == 0 && pickerView == roundsPicker
         {
@@ -79,7 +79,7 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
         }
         else if component == 2
         {
-            selectedTimer.durationSeconds = secondsList[row]
+            selectedTimer.durationWorkSeconds = secondsList[row]
         }
         
         updateTextField()
@@ -88,14 +88,14 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func updateTextField()
     {
         var textField = String()
-        var selectedMinutes = selectedTimer.durationMinutes
-        let selectedSeconds = selectedTimer.durationSeconds
+        var selectedMinutes = selectedTimer.durationWorkMinutes
+        let selectedSeconds = selectedTimer.durationWorkSeconds
         
         if selectedMinutes == 0 && selectedSeconds == 0
         {
             durationPicker.selectRow(1, inComponent: 0, animated: true)
             selectedMinutes = 1
-            selectedTimer.durationMinutes = 1
+            selectedTimer.durationWorkMinutes = 1
             textField = "\(selectedMinutes) min"
         }
         else if selectedSeconds == 0
@@ -111,8 +111,8 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
             textField = "\(selectedMinutes) min \(selectedSeconds) sec"
         }
         
-        intervalDurationTextBox.text = textField
-        durationTextBox.text = createTotalDurationFromRounds()
+        intervalDurationTextField.text = textField
+        durationTextField.text = createTotalDurationFromRounds()
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
@@ -164,12 +164,12 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func createTotalDurationFromRounds() -> String
     {
-        let durationAsDecimal = Double(selectedTimer.rounds) * (Double(selectedTimer.durationMinutes) + Double(selectedTimer.durationSeconds) / 60.0)
+        let durationAsDecimal = Double(selectedTimer.rounds) * (Double(selectedTimer.durationWorkMinutes) + Double(selectedTimer.durationWorkSeconds) / 60.0)
         
         let totalMinutes = floor(durationAsDecimal)
         let totalSeconds = (durationAsDecimal - totalMinutes) * 60
         
-        selectedTimer.totalDurationSeconds = Int(totalMinutes * 60 + totalSeconds)
+        totalDurationSeconds = Int(totalMinutes * 60 + totalSeconds)
         
         return createDurationString(totalMinutes: totalMinutes, totalSeconds: totalSeconds)
     }

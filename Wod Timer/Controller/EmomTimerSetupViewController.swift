@@ -13,8 +13,10 @@ class EmomTimerSetupViewController: UIViewController
     //UI Elements
     @IBOutlet weak var timerTitleLabel: UILabel!
     @IBOutlet weak var timerInstructionLabel: UILabel!
-    @IBOutlet weak var intervalDurationTextBox: UITextField!
-    @IBOutlet weak var durationTextBox: UITextField!
+    
+    @IBOutlet weak var intervalDurationTextField: UITextField!
+    @IBOutlet weak var durationTextField: UITextField!
+    
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
@@ -23,22 +25,17 @@ class EmomTimerSetupViewController: UIViewController
     let roundsPicker = UIPickerView()
     
     //Generic Timer To Setup
-    var selectedTimer = timerType(title: String(), instructions: String(), timer: TimersEnum.None)
+    var selectedTimer = timerType(title: String(), instructions: String(), timer: TimersEnum.none)
+    var totalDurationSeconds = Int()
     
-    @IBOutlet weak var intervalDurationTextField: UITextField!
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        startButton.frame = CGRect(x: startButton.frame.origin.x, y: startButton.frame.origin.y, width: startButton.frame.width, height: self.view.frame.height/8)
+        startButton.styleStartButton(frameHeight: self.view.frame.height)
         
-        intervalDurationTextBox.layer.cornerRadius = intervalDurationTextBox.frame.size.height/2
-        intervalDurationTextBox.layer.borderWidth = 1
-        intervalDurationTextBox.layer.borderColor = colours.pink.cgColor
-        
-        durationTextBox.layer.cornerRadius = durationTextBox.frame.size.height/2
-        durationTextBox.layer.borderWidth = 1
-        durationTextBox.layer.borderColor = colours.pink.cgColor
+        intervalDurationTextField.styleTextFields()
+        durationTextField.styleTextFields()
         
         setupEmomTimer()
     }
@@ -54,15 +51,15 @@ class EmomTimerSetupViewController: UIViewController
         createRoundsPicker()
         
         //Set up timer defaults
-        selectedTimer.durationMinutes = 10
-        selectedTimer.durationSeconds = 0
-        selectedTimer.totalDurationSeconds = selectedTimer.durationSeconds * 60
+        selectedTimer.durationWorkMinutes = 10
+        selectedTimer.durationWorkSeconds = 0
+        totalDurationSeconds = selectedTimer.durationWorkSeconds * 60
         
         //Text Box Defaults
-        intervalDurationTextBox.text = "1 min"
-        intervalDurationTextBox.inputView = durationPicker
-        durationTextBox.text = "10 min"
-        durationTextBox.inputView = roundsPicker
+        intervalDurationTextField.text = "1 min"
+        intervalDurationTextField.inputView = durationPicker
+        durationTextField.text = "10 min"
+        durationTextField.inputView = roundsPicker
         
         createToolbar()
     }
@@ -96,8 +93,8 @@ class EmomTimerSetupViewController: UIViewController
         toolbar.setItems([doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         
-        intervalDurationTextBox.inputAccessoryView = toolbar
-        durationTextBox.inputAccessoryView = toolbar
+        intervalDurationTextField.inputAccessoryView = toolbar
+        durationTextField.inputAccessoryView = toolbar
     }
     
     @objc func dismissKeyboard()
@@ -113,7 +110,9 @@ class EmomTimerSetupViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         let runTimerVC: RunTimerViewController = segue.destination as! RunTimerViewController
-        runTimerVC.selectedTimer = selectedTimer
+        
+        runTimerVC._timerType = selectedTimer.TimerId
+        runTimerVC._queuedTimes = createQueue(timerInfo: selectedTimer)
         
         let backItem = UIBarButtonItem()
         backItem.title = ""

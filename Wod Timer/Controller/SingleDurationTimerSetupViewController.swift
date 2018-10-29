@@ -21,17 +21,15 @@ class SingleDurationTimerSetupViewController: UIViewController
     let durationPicker = UIPickerView()
     
     //Generic Timer To Setup
-    var selectedTimer = timerType(title: String(), instructions: String(), timer: TimersEnum.None)
+    var selectedTimer = timerType(title: String(), instructions: String(), timer: TimersEnum.none)
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        startButton.frame = CGRect(x: startButton.frame.origin.x, y: startButton.frame.origin.y, width: startButton.frame.width, height: self.view.frame.height/8)
+        startButton.styleStartButton(frameHeight: self.view.frame.height)
         
-        singleTimerDurationTextField.layer.cornerRadius = singleTimerDurationTextField.frame.size.height/2
-        singleTimerDurationTextField.layer.borderWidth = 1
-        singleTimerDurationTextField.layer.borderColor = colours.pink.cgColor
+        singleTimerDurationTextField.styleTextFields()
         
         setupSingleTimerInformation()
     }
@@ -43,9 +41,8 @@ class SingleDurationTimerSetupViewController: UIViewController
         
         createDurationPicker()
         
-        selectedTimer.durationMinutes = 10
-        selectedTimer.durationSeconds = 0
-        selectedTimer.totalDurationSeconds = selectedTimer.durationMinutes * 60
+        selectedTimer.durationWorkMinutes = 10
+        selectedTimer.durationWorkSeconds = 0
         
         singleTimerDurationTextField.text = "10 Minutes"
         singleTimerDurationTextField.inputView = durationPicker
@@ -90,7 +87,9 @@ class SingleDurationTimerSetupViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         let runTimerVC: RunTimerViewController = segue.destination as! RunTimerViewController
-        runTimerVC.selectedTimer = selectedTimer
+        
+        runTimerVC._timerType = selectedTimer.TimerId
+        runTimerVC._queuedTimes = createQueue(timerInfo: selectedTimer)
         
         let backItem = UIBarButtonItem()
         backItem.title = ""

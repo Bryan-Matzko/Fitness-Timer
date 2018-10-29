@@ -13,39 +13,33 @@ class TabataTimerSetupViewController: UIViewController
     //Buttons and Labels
     @IBOutlet weak var timerTitleLabel: UILabel!
     @IBOutlet weak var timerInstructionLabel: UILabel!
-    @IBOutlet weak var helpButton: UIButton!
-    @IBOutlet weak var startButton: UIButton!
     
     //Picker associated text fields
     @IBOutlet weak var workDurationTextField: UITextField!
     @IBOutlet weak var restDurationTextField: UITextField!
     @IBOutlet weak var roundsTextField: UITextField!
     
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    
     //Timer setup pickers
     let durationPicker = UIPickerView()
     let restDurationPicker = UIPickerView()
     let roundsPicker = UIPickerView()
+    var totalDurationSeconds = Int()
     
     //Generic Timer To Setup
-    var selectedTimer = timerType(title: String(), instructions: String(), timer: TimersEnum.None)
+    var selectedTimer = timerType(title: String(), instructions: String(), timer: TimersEnum.none)
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        startButton.frame = CGRect(x: startButton.frame.origin.x, y: startButton.frame.origin.y, width: startButton.frame.width, height: self.view.frame.height/8)
+        startButton.styleStartButton(frameHeight: self.view.frame.height)
         
-        workDurationTextField.layer.cornerRadius = workDurationTextField.frame.size.height/2
-        workDurationTextField.layer.borderWidth = 1
-        workDurationTextField.layer.borderColor = colours.pink.cgColor
-        
-        restDurationTextField.layer.cornerRadius = restDurationTextField.frame.size.height/2
-        restDurationTextField.layer.borderWidth = 1
-        restDurationTextField.layer.borderColor = colours.pink.cgColor
-        
-        roundsTextField.layer.cornerRadius = roundsTextField.frame.size.height/2
-        roundsTextField.layer.borderWidth = 1
-        roundsTextField.layer.borderColor = colours.pink.cgColor
+        workDurationTextField.styleTextFields()
+        restDurationTextField.styleTextFields()
+        roundsTextField.styleTextFields()
         
         setupTabataInformation()
     }
@@ -65,9 +59,9 @@ class TabataTimerSetupViewController: UIViewController
         selectedTimer.rounds = 10
         selectedTimer.durationRestMinutes = 1
         selectedTimer.durationRestSeconds = 0
-        selectedTimer.durationMinutes = 1
-        selectedTimer.durationSeconds = 0
-        selectedTimer.totalDurationSeconds = ((selectedTimer.durationMinutes + selectedTimer.durationRestMinutes) * selectedTimer.rounds - selectedTimer.durationRestMinutes) * 60
+        selectedTimer.durationWorkMinutes = 1
+        selectedTimer.durationWorkSeconds = 0
+        totalDurationSeconds = ((selectedTimer.durationWorkMinutes + selectedTimer.durationRestMinutes) * selectedTimer.rounds - selectedTimer.durationRestMinutes) * 60
         
         //Text Box Defaults
         workDurationTextField.text = "1 min"
@@ -138,7 +132,8 @@ class TabataTimerSetupViewController: UIViewController
     {
         let runTimerVC: RunTimerViewController = segue.destination as! RunTimerViewController
         
-        runTimerVC.selectedTimer = selectedTimer
+        runTimerVC._timerType = selectedTimer.TimerId
+        runTimerVC._queuedTimes = createQueue(timerInfo: selectedTimer)
         
         let backItem = UIBarButtonItem()
         backItem.title = ""

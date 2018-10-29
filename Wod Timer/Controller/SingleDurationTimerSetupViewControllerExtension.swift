@@ -13,10 +13,6 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
 {
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
-        if selectedTimer.TimerId == TimersEnum.AmrapAndForTime
-        {
-            
-        }
         return 4
     }
     
@@ -59,11 +55,11 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0
         {
-            selectedTimer.durationMinutes = minutesList[row]
+            selectedTimer.durationWorkMinutes = minutesList[row]
         }
         else if component == 2
         {
-            selectedTimer.durationSeconds = secondsList[row]
+            selectedTimer.durationWorkSeconds = secondsList[row]
         }
         
         updateTextField()
@@ -72,14 +68,14 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
     func updateTextField()
     {
         var textField = String()
-        var selectedMinutes = selectedTimer.durationMinutes
-        let selectedSeconds = selectedTimer.durationSeconds
+        var selectedMinutes = selectedTimer.durationWorkMinutes
+        let selectedSeconds = selectedTimer.durationWorkSeconds
         
         if selectedMinutes == 0 && selectedSeconds == 0
         {
             durationPicker.selectRow(1, inComponent: 0, animated: true)
             selectedMinutes = 1
-            selectedTimer.durationMinutes = 1
+            selectedTimer.durationWorkMinutes = 1
             textField = "\(selectedMinutes) min"
         }
         else if selectedSeconds == 0
@@ -96,7 +92,6 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
         }
         
         singleTimerDurationTextField.text = textField
-        selectedTimer.totalDurationSeconds = selectedTimer.durationMinutes * 60 + selectedTimer.durationSeconds
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView

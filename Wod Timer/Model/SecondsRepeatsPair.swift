@@ -8,14 +8,16 @@
 
 import Foundation
 
-struct SecondsRepeatPair
+struct SecondsRepeatsPair
 {
     var seconds = Int()
     var repeats = Int()
+    var isWork = Bool()
     
-    init(secondsValue: Int, repeatsValue: Int = 0)
+    init(secondsValue: Int, repeatsValue: Int, isWorkValue: Bool = true)
     {
         seconds = secondsValue
         repeats = repeatsValue
+        isWork = isWorkValue
     }
 }

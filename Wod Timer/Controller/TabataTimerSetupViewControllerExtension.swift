@@ -79,7 +79,7 @@ extension TabataTimerSetupViewController: UIPickerViewDelegate, UIPickerViewData
     {
         if component == 0 && pickerView == durationPicker
         {
-            selectedTimer.durationMinutes = minutesList[row]
+            selectedTimer.durationWorkMinutes = minutesList[row]
         }
         else if component == 0 && pickerView == restDurationPicker
         {
@@ -93,7 +93,7 @@ extension TabataTimerSetupViewController: UIPickerViewDelegate, UIPickerViewData
         }
         else if component == 2 && pickerView == durationPicker
         {
-            selectedTimer.durationSeconds = secondsList[row]
+            selectedTimer.durationWorkSeconds = secondsList[row]
         }
         else if component == 2 && pickerView == restDurationPicker
         {
@@ -117,7 +117,7 @@ extension TabataTimerSetupViewController: UIPickerViewDelegate, UIPickerViewData
             if(isDuration)
             {
                 durationPicker.selectRow(1, inComponent: 0, animated: true)
-                selectedTimer.durationMinutes = 1
+                selectedTimer.durationWorkMinutes = 1
             }
             else
             {
@@ -146,7 +146,7 @@ extension TabataTimerSetupViewController: UIPickerViewDelegate, UIPickerViewData
     func updateTextField()
     {
         //Picker associated text fields
-        workDurationTextField.text = createTimeRepresentation(minutes: selectedTimer.durationMinutes, seconds: selectedTimer.durationSeconds, isDuration: true)
+        workDurationTextField.text = createTimeRepresentation(minutes: selectedTimer.durationWorkMinutes, seconds: selectedTimer.durationWorkSeconds, isDuration: true)
         restDurationTextField.text = createTimeRepresentation(minutes: selectedTimer.durationRestMinutes, seconds: selectedTimer.durationRestSeconds, isDuration: false)
         roundsTextField.text = "blooper"
     }

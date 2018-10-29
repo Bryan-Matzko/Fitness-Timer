@@ -466,10 +466,9 @@
                     </view>
                     <size key="freeformSize" width="375" height="664"/>
                     <connections>
-                        <outlet property="durationTextBox" destination="VJv-FX-dRa" id="9OQ-9d-zpf"/>
+                        <outlet property="durationTextField" destination="VJv-FX-dRa" id="9HW-QK-Xz7"/>
                         <outlet property="helpButton" destination="eRJ-7t-rnx" id="iOn-5z-LpF"/>
-                        <outlet property="intervalDurationTextBox" destination="YU5-sV-kCa" id="wlA-39-XcT"/>
-                        <outlet property="intervalDurationTextField" destination="YU5-sV-kCa" id="qRa-KE-IB0"/>
+                        <outlet property="intervalDurationTextField" destination="YU5-sV-kCa" id="wlA-39-XcT"/>
                         <outlet property="startButton" destination="Nbe-9Z-R9P" id="wcW-7I-EDJ"/>
                         <outlet property="timerInstructionLabel" destination="VZZ-rj-0oz" id="nOY-QC-w6v"/>
                         <outlet property="timerTitleLabel" destination="xvP-qK-d4s" id="Hv2-Pl-wGe"/>
@@ -637,39 +636,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8z-DM-UWS">
-                                <rect key="frame" x="16" y="492" width="80" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="START">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="startButtonAction:" destination="vAD-fM-62G" eventType="touchUpInside" id="aQv-1q-ltu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUf-3z-sjR">
-                                <rect key="frame" x="147" y="492" width="80" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="PAUSE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="pauseButtonAction:" destination="vAD-fM-62G" eventType="touchUpInside" id="BPk-lk-ew9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1d-3i-2kn">
-                                <rect key="frame" x="279" y="492" width="80" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="RESET">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetButtonAction:" destination="vAD-fM-62G" eventType="touchUpInside" id="yNn-wK-5mz"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63e-lG-eok">
                                 <rect key="frame" x="62" y="91" width="250" height="250"/>
                                 <constraints>
@@ -680,6 +646,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8z-DM-UWS">
+                                <rect key="frame" x="147" y="482" width="80" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonAction:" destination="vAD-fM-62G" eventType="touchUpInside" id="aQv-1q-ltu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.72222189879999998" green="0.70598383890000005" blue="0.96080166099999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -690,6 +667,7 @@
                         <viewLayoutGuide key="safeArea" id="GLb-tP-RU3"/>
                     </view>
                     <connections>
+                        <outlet property="playPauseButton" destination="T8z-DM-UWS" id="SSa-Tx-Rmy"/>
                         <outlet property="timeLabel" destination="63e-lG-eok" id="dNW-Kk-TTh"/>
                     </connections>
                 </viewController>

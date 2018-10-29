@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		734FDC4C2184F4AD00DACDF4 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734FDC4B2184F4AD00DACDF4 /* Enums.swift */; };
 		739595EF2161AC7000468716 /* EmomTimerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739595EE2161AC7000468716 /* EmomTimerSetupViewController.swift */; };
 		739595F12161AC8F00468716 /* EmomTimerSetupViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739595F02161AC8F00468716 /* EmomTimerSetupViewControllerExtension.swift */; };
 		739595F32161ACBA00468716 /* TabataTimerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739595F22161ACBA00468716 /* TabataTimerSetupViewController.swift */; };
@@ -14,7 +15,7 @@
 		739595F72161BA8900468716 /* RunTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739595F62161BA8900468716 /* RunTimerViewController.swift */; };
 		73E2034821837AC9005FFC12 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2034721837AC9005FFC12 /* Queue.swift */; };
 		73E2034B21837BED005FFC12 /* CreateQueueFromTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2034A21837BED005FFC12 /* CreateQueueFromTimer.swift */; };
-		73E2034D21837C87005FFC12 /* KeyValuePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2034C21837C87005FFC12 /* KeyValuePair.swift */; };
+		73E2034D21837C87005FFC12 /* SecondsRepeatsPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2034C21837C87005FFC12 /* SecondsRepeatsPair.swift */; };
 		73F08CCA21617ED8004B1B89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CC921617ED8004B1B89 /* AppDelegate.swift */; };
 		73F08CCC21617ED8004B1B89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CCB21617ED8004B1B89 /* ViewController.swift */; };
 		73F08CCF21617ED8004B1B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F08CCD21617ED8004B1B89 /* Main.storyboard */; };
@@ -22,12 +23,13 @@
 		73F08CD421617EDA004B1B89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F08CD221617EDA004B1B89 /* LaunchScreen.storyboard */; };
 		73F08CE021618091004B1B89 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CDF21618091004B1B89 /* UIViewExtension.swift */; };
 		73F08CE2216180AC004B1B89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE1216180AC004B1B89 /* Constants.swift */; };
-		73F08CE4216180E5004B1B89 /* TimerWod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE3216180E5004B1B89 /* TimerWod.swift */; };
+		73F08CE4216180E5004B1B89 /* TimerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE3216180E5004B1B89 /* TimerType.swift */; };
 		73F08CE621618121004B1B89 /* SingleDurationTimerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE521618121004B1B89 /* SingleDurationTimerSetupViewController.swift */; };
 		73F08CE921618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE821618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		734FDC4B2184F4AD00DACDF4 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		739595EE2161AC7000468716 /* EmomTimerSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmomTimerSetupViewController.swift; sourceTree = "<group>"; };
 		739595F02161AC8F00468716 /* EmomTimerSetupViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmomTimerSetupViewControllerExtension.swift; sourceTree = "<group>"; };
 		739595F22161ACBA00468716 /* TabataTimerSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabataTimerSetupViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +37,7 @@
 		739595F62161BA8900468716 /* RunTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTimerViewController.swift; sourceTree = "<group>"; };
 		73E2034721837AC9005FFC12 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		73E2034A21837BED005FFC12 /* CreateQueueFromTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQueueFromTimer.swift; sourceTree = "<group>"; };
-		73E2034C21837C87005FFC12 /* KeyValuePair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValuePair.swift; sourceTree = "<group>"; };
+		73E2034C21837C87005FFC12 /* SecondsRepeatsPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsRepeatsPair.swift; sourceTree = "<group>"; };
 		73F08CC621617ED8004B1B89 /* Wod Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wod Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F08CC921617ED8004B1B89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F08CCB21617ED8004B1B89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		73F08CD521617EDA004B1B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F08CDF21618091004B1B89 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		73F08CE1216180AC004B1B89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		73F08CE3216180E5004B1B89 /* TimerWod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWod.swift; sourceTree = "<group>"; };
+		73F08CE3216180E5004B1B89 /* TimerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerType.swift; sourceTree = "<group>"; };
 		73F08CE521618121004B1B89 /* SingleDurationTimerSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDurationTimerSetupViewController.swift; sourceTree = "<group>"; };
 		73F08CE821618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDurationTimerSetupViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				73E2034A21837BED005FFC12 /* CreateQueueFromTimer.swift */,
+				73F08CDF21618091004B1B89 /* UIViewExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -100,11 +103,11 @@
 		73F08CDB21617EE7004B1B89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73F08CDF21618091004B1B89 /* UIViewExtension.swift */,
-				73F08CE3216180E5004B1B89 /* TimerWod.swift */,
-				73F08CE1216180AC004B1B89 /* Constants.swift */,
+				73F08CE3216180E5004B1B89 /* TimerType.swift */,
 				73E2034721837AC9005FFC12 /* Queue.swift */,
-				73E2034C21837C87005FFC12 /* KeyValuePair.swift */,
+				73E2034C21837C87005FFC12 /* SecondsRepeatsPair.swift */,
+				73F08CE1216180AC004B1B89 /* Constants.swift */,
+				734FDC4B2184F4AD00DACDF4 /* Enums.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,10 +221,11 @@
 				739595F12161AC8F00468716 /* EmomTimerSetupViewControllerExtension.swift in Sources */,
 				739595F52161ACCE00468716 /* TabataTimerSetupViewControllerExtension.swift in Sources */,
 				73F08CCA21617ED8004B1B89 /* AppDelegate.swift in Sources */,
-				73E2034D21837C87005FFC12 /* KeyValuePair.swift in Sources */,
+				73E2034D21837C87005FFC12 /* SecondsRepeatsPair.swift in Sources */,
 				73E2034B21837BED005FFC12 /* CreateQueueFromTimer.swift in Sources */,
 				73F08CE2216180AC004B1B89 /* Constants.swift in Sources */,
-				73F08CE4216180E5004B1B89 /* TimerWod.swift in Sources */,
+				734FDC4C2184F4AD00DACDF4 /* Enums.swift in Sources */,
+				73F08CE4216180E5004B1B89 /* TimerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

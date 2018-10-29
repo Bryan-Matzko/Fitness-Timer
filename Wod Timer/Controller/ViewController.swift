@@ -19,19 +19,7 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         
-        //Round the edges
-        amrapButton.layer.cornerRadius = emomButton.frame.size.height/2
-        forTimeButton.layer.cornerRadius = emomButton.frame.size.height/2
-        emomButton.layer.cornerRadius = emomButton.frame.size.height/2
-        tabataButton.layer.cornerRadius = emomButton.frame.size.height/2
-        
-        //Ensure our gradient doesn't hide corners
-        amrapButton.layer.masksToBounds = true
-        forTimeButton.layer.masksToBounds = true
-        emomButton.layer.masksToBounds = true
-        tabataButton.layer.masksToBounds = true
-        
-        //Create background colour
+        //Create background colour, round edges
         amrapButton.createButtonGradient(startColour: colours.white , endColour: colours.blue)
         forTimeButton.createButtonGradient(startColour: colours.white , endColour: colours.blue)
         emomButton.createButtonGradient(startColour: colours.white , endColour: colours.blue)

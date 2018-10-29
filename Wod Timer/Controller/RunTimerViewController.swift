@@ -11,98 +11,83 @@ import UIKit
 class RunTimerViewController: UIViewController
 {
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var playPauseButton: UIButton!
     
-    var seconds: Int = 60
-    var timer = Timer()
-    var isTimerRunning = false
-    var resumeTapped = false
+    var _seconds: Int = 60
+    var _timer = Timer()
+    var _isTimerRunning = false
     
-    var secondsDefault = Int()
-    var roundsOfSecondsDefault = Int()
+    var _secondsDefault = Int()
+    var _roundsOfSecondsDefault = Int()
     
-    var selectedTimer = timerType(title: String(), instructions: String(), timer: TimersEnum.None)
-    var queuedTimes = Queue<SecondsRepeatPair>()
+    var _timerType = TimersEnum.none
+    var _queuedTimes = Queue<SecondsRepeatsPair>()
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        queuedTimes.enqueue(SecondsRepeatPair(secondsValue: 5, repeatsValue: 0))
-        queuedTimes.enqueue(SecondsRepeatPair(secondsValue: 10, repeatsValue: 0))
-        queuedTimes.enqueue(SecondsRepeatPair(secondsValue: 4, repeatsValue: 2))
+        //_queuedTimes.enqueue(SecondsRepeatPair(secondsValue: 5, repeatsValue: 0))
+        //_queuedTimes.enqueue(SecondsRepeatPair(secondsValue: 10, repeatsValue: 0))
+        //_queuedTimes.enqueue(SecondsRepeatPair(secondsValue: 4, repeatsValue: 2))
         
         //Set current value of our timer
-        let dequeuedItem = queuedTimes.dequeue()
-        secondsDefault = dequeuedItem!.seconds
-        roundsOfSecondsDefault = dequeuedItem!.repeats
-        seconds = secondsDefault
+        let dequeuedItem = _queuedTimes.dequeue()
+        _secondsDefault = dequeuedItem!.seconds
+        _roundsOfSecondsDefault = dequeuedItem!.repeats
+        _seconds = _secondsDefault
         
         updateLabel()
     }
     
     @IBAction func startButtonAction(_ sender: Any)
     {
-        if isTimerRunning == false
+        if _isTimerRunning == false
         {
             runTimer()
+            playPauseButton.setTitle("Pause", for: UIControl.State.normal)
+        }
+        else
+        {
+            _timer.invalidate()
+            _isTimerRunning = false
+            playPauseButton.setTitle("Play", for: UIControl.State.normal)
         }
     }
     
     func runTimer()
     {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(RunTimerViewController.updateTimer)), userInfo: nil, repeats: true)
+        _timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(RunTimerViewController.updateTimer)), userInfo: nil, repeats: true)
         
-        isTimerRunning = true
-    }
-    
-    @IBAction func pauseButtonAction(_ sender: Any)
-    {
-        if self.resumeTapped == false
-        {
-            timer.invalidate()
-            self.resumeTapped = true
-        }
-        else
-        {
-            runTimer()
-            self.resumeTapped = false
-        }
-    }
-    
-    @IBAction func resetButtonAction(_ sender: Any)
-    {
-        timer.invalidate()
-        isTimerRunning = false
-        seconds = 60
-        updateLabel()
+        _isTimerRunning = true
     }
     
     @objc func updateTimer()
     {
-        if seconds > 1
+        if _seconds > 1
         {
-            seconds -= 1
+            _seconds -= 1
         }
-        else if seconds == 1 && roundsOfSecondsDefault > 0
+        else if _seconds == 1 && _roundsOfSecondsDefault > 0
         {
-            seconds = secondsDefault
-            roundsOfSecondsDefault -= 1
+            _seconds = _secondsDefault
+            _roundsOfSecondsDefault -= 1
         }
-        else if seconds == 1 && !queuedTimes.isEmpty()
+        else if _seconds == 1 && !_queuedTimes.isEmpty()
         {
-            let dequeuedItem = queuedTimes.dequeue()
-            secondsDefault = dequeuedItem!.seconds
-            roundsOfSecondsDefault = dequeuedItem!.repeats
-            seconds = secondsDefault
+            let dequeuedItem = _queuedTimes.dequeue()
+            _secondsDefault = dequeuedItem!.seconds
+            _roundsOfSecondsDefault = dequeuedItem!.repeats
+            _seconds = _secondsDefault
         }
-        else if seconds == 1
+        else if _seconds == 1
         {
-            seconds -= 1
+            _seconds -= 1
         }
-        else if seconds == 0
+        else if _seconds == 0
         {
-            timer.invalidate()
+            _timer.invalidate()
         }
         
         updateLabel()
@@ -110,7 +95,7 @@ class RunTimerViewController: UIViewController
     
     func updateLabel()
     {
-        timeLabel.text = timeString(time: TimeInterval(seconds))
+        timeLabel.text = timeString(time: TimeInterval(_seconds))
     }
     
     func timeString(time:TimeInterval) -> String

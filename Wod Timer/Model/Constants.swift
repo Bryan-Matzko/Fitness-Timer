@@ -17,20 +17,11 @@ struct colours
     static let pink         = UIColor(displayP3Red: 208.0/255.0, green: 48.0/255.0, blue: 141.0/255.0, alpha: 1.0)
 }
 
-let timerTypes = [timerType(title: "AMRAP", instructions: "As Many Rounds as Possible for Time:", timer: TimersEnum.AmrapAndForTime),
-                  timerType(title: "For Time", instructions: "As Fast as Possible for Time:", timer: TimersEnum.AmrapAndForTime),
-                  timerType(title: "EMOM", instructions: "Every Minute on the Minute:", timer: TimersEnum.Emom),
-                  timerType(title: "Tabata", instructions: "Interval Training:", timer: TimersEnum.Tabata)]
+let timerTypes = [timerType(title: "For Time", instructions: "As Fast as Possible for Time:", timer: TimersEnum.forTime),
+                  timerType(title: "AMRAP", instructions: "As Many Rounds as Possible for Time:", timer: TimersEnum.amrap),
+                  timerType(title: "EMOM", instructions: "Every Minute on the Minute:", timer: TimersEnum.emom),
+                  timerType(title: "Tabata", instructions: "Interval Training:", timer: TimersEnum.tabata)]
 
-//Can't do both 0 minutes and 0 seconds
 let minutesList = Array(0...120)
-let secondsList = [0,10,20,30,40,50,60]
+let secondsList = Array(0...5).map({ $0 * 2 })
 var roundsList = Array(1...60)
-
-enum TimersEnum
-{
-    case AmrapAndForTime
-    case Emom
-    case Tabata
-    case None
-}
