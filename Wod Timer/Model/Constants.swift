@@ -23,5 +23,5 @@ let timerTypes = [timerType(title: "For Time", instructions: "As Fast as Possibl
                   timerType(title: "Tabata", instructions: "Interval Training:", timer: TimersEnum.tabata)]
 
 let minutesList = Array(0...120)
-let secondsList = Array(0...5).map({ $0 * 2 })
+let secondsList = Array(0...3).map({ $0 * 15 })
 var roundsList = Array(1...60)

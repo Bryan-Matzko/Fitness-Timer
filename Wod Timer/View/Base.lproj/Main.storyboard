@@ -213,19 +213,6 @@
                                     <constraint firstItem="0BM-Dm-rOd" firstAttribute="centerX" secondItem="pZu-MO-dPx" secondAttribute="centerX" id="zsI-mS-GUW"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evA-CC-cja">
-                                <rect key="frame" x="315" y="564" width="40" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="eD5-37-RQk"/>
-                                    <constraint firstAttribute="width" constant="40" id="tai-6F-qkJ"/>
-                                </constraints>
-                                <state key="normal" title="Help?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="helpButton:" destination="9jp-9s-i6p" eventType="touchUpInside" id="Vgv-IF-zge"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -234,15 +221,12 @@
                             <constraint firstItem="pZu-MO-dPx" firstAttribute="trailing" secondItem="Idy-ww-Wi1" secondAttribute="trailing" id="5DY-yR-G65"/>
                             <constraint firstItem="pZu-MO-dPx" firstAttribute="trailing" secondItem="Idy-ww-Wi1" secondAttribute="trailing" id="Fll-Rz-4sq"/>
                             <constraint firstItem="tGO-GB-DW4" firstAttribute="trailing" secondItem="Idy-ww-Wi1" secondAttribute="trailing" id="Oyw-Xz-lTl"/>
-                            <constraint firstItem="tGO-GB-DW4" firstAttribute="top" secondItem="evA-CC-cja" secondAttribute="bottom" constant="8" id="Pv3-fO-nvk"/>
                             <constraint firstItem="tGO-GB-DW4" firstAttribute="trailing" secondItem="Idy-ww-Wi1" secondAttribute="trailing" id="S03-de-Lhl"/>
                             <constraint firstItem="tGO-GB-DW4" firstAttribute="bottom" secondItem="Idy-ww-Wi1" secondAttribute="bottom" id="UeB-SW-blb"/>
                             <constraint firstItem="4c7-ZT-sZg" firstAttribute="top" secondItem="pZu-MO-dPx" secondAttribute="bottom" id="bPL-kh-wA8"/>
                             <constraint firstItem="4c7-ZT-sZg" firstAttribute="top" secondItem="pZu-MO-dPx" secondAttribute="bottom" id="biJ-8z-CWx"/>
                             <constraint firstItem="pZu-MO-dPx" firstAttribute="leading" secondItem="Idy-ww-Wi1" secondAttribute="leading" id="cYQ-Ax-xCZ"/>
-                            <constraint firstItem="tGO-GB-DW4" firstAttribute="top" secondItem="evA-CC-cja" secondAttribute="bottom" constant="8" id="eSo-LB-ZOZ"/>
                             <constraint firstItem="pZu-MO-dPx" firstAttribute="top" secondItem="Idy-ww-Wi1" secondAttribute="top" id="kBT-gh-anW"/>
-                            <constraint firstItem="Idy-ww-Wi1" firstAttribute="trailing" secondItem="evA-CC-cja" secondAttribute="trailing" constant="20" id="kNO-uW-pgc"/>
                             <constraint firstItem="4c7-ZT-sZg" firstAttribute="centerY" secondItem="CSS-Ke-ycZ" secondAttribute="centerY" id="kxY-6S-fmy"/>
                             <constraint firstItem="4c7-ZT-sZg" firstAttribute="centerX" secondItem="CSS-Ke-ycZ" secondAttribute="centerX" id="kzZ-dB-EIr"/>
                             <constraint firstItem="pZu-MO-dPx" firstAttribute="leading" secondItem="Idy-ww-Wi1" secondAttribute="leading" id="mR3-RX-efO"/>
@@ -252,7 +236,6 @@
                         <viewLayoutGuide key="safeArea" id="Idy-ww-Wi1"/>
                     </view>
                     <connections>
-                        <outlet property="helpButton" destination="evA-CC-cja" id="jfc-XV-ayG"/>
                         <outlet property="singleTimerDurationTextField" destination="Xyo-bz-QhU" id="dqJ-Dl-Txw"/>
                         <outlet property="startButton" destination="tGO-GB-DW4" id="8ZS-NH-e6k"/>
                         <outlet property="timerInstructionLabel" destination="LXv-iy-NgY" id="hzz-Ip-ekI"/>
@@ -706,7 +689,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yci-CR-042"/>
+        <segue reference="SV3-eN-oWF"/>
         <segue reference="nrD-hR-XVM"/>
     </inferredMetricsTieBreakers>
 </document>

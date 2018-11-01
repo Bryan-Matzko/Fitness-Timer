@@ -17,7 +17,7 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
         {
             return 4
         }
-        else //pickerView == roundsPicker
+        else
         {
             return 1
         }
@@ -33,37 +33,13 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
         {
             return selectedTimer.roundsPicker.count
         }
-        else if component == 1 || component == 3
-        {
-            return 1
-        }
-        else
+        else if component == 2
         {
             return selectedTimer.secondsPicker.count
         }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        if component == 0 && pickerView == durationPicker
-        {
-            return "\(selectedTimer.minutesPicker[row])"
-        }
-        else if component == 0 && pickerView == roundsPicker
-        {
-            return createTotalDurationFromRounds(row: row)
-        }
-        else if component == 1
-        {
-            return "min"
-        }
-        else if component == 2
-        {
-            return "\(selectedTimer.secondsPicker[row])"
-        }
         else
         {
-            return "sec"
+            return 1
         }
     }
     
@@ -71,7 +47,7 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     {
         if component == 0 && pickerView == durationPicker
         {
-            selectedTimer.durationWorkMinutes = minutesList[row]
+            selectedTimer.durationWorkMinutes = selectedTimer.minutesPicker[row]
         }
         else if component == 0 && pickerView == roundsPicker
         {
@@ -79,7 +55,7 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
         }
         else if component == 2
         {
-            selectedTimer.durationWorkSeconds = secondsList[row]
+            selectedTimer.durationWorkSeconds = selectedTimer.secondsPicker[row]
         }
         
         updateTextField()
@@ -88,15 +64,14 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func updateTextField()
     {
         var textField = String()
-        var selectedMinutes = selectedTimer.durationWorkMinutes
+        let selectedMinutes = selectedTimer.durationWorkMinutes
         let selectedSeconds = selectedTimer.durationWorkSeconds
         
         if selectedMinutes == 0 && selectedSeconds == 0
         {
             durationPicker.selectRow(1, inComponent: 0, animated: true)
-            selectedMinutes = 1
             selectedTimer.durationWorkMinutes = 1
-            textField = "\(selectedMinutes) min"
+            textField = "\(1) min"
         }
         else if selectedSeconds == 0
         {
@@ -164,30 +139,23 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func createTotalDurationFromRounds() -> String
     {
-        let durationAsDecimal = Double(selectedTimer.rounds) * (Double(selectedTimer.durationWorkMinutes) + Double(selectedTimer.durationWorkSeconds) / 60.0)
+        totalDurationSeconds = selectedTimer.rounds * (selectedTimer.durationWorkMinutes * 60 + selectedTimer.durationWorkSeconds)
         
-        let totalMinutes = floor(durationAsDecimal)
-        let totalSeconds = (durationAsDecimal - totalMinutes) * 60
-        
-        totalDurationSeconds = Int(totalMinutes * 60 + totalSeconds)
+        let totalMinutes = totalDurationSeconds / 60
+        let totalSeconds = totalDurationSeconds % 60
         
         return createDurationString(totalMinutes: totalMinutes, totalSeconds: totalSeconds)
     }
     
-    func createDurationString(totalMinutes: Double, totalSeconds: Double) -> String
-    {
-        return createDurationString(totalMinutes: Int(totalMinutes), totalSeconds: Int(totalSeconds))
-    }
-    
     func createDurationString(totalMinutes: Int, totalSeconds: Int) -> String
     {
-        if totalMinutes == 0
-        {
-            return "\(totalSeconds) sec"
-        }
-        else if totalSeconds == 0
+        if totalSeconds == 0
         {
             return "\(totalMinutes) min"
+        }
+        else if totalMinutes == 0
+        {
+            return "\(totalSeconds) sec"
         }
         else
         {

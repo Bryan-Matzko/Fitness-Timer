@@ -17,9 +17,9 @@ class timerType
     var Instructions = String()
     
     //Picker Setup
-    var minutesPicker = minutesList
-    var secondsPicker = secondsList
-    var roundsPicker = roundsList
+    var minutesPicker = [Int]()
+    var secondsPicker = [Int]()
+    var roundsPicker = [Int]()
     
     //duration of work
     var durationWorkMinutes = Int()
@@ -43,11 +43,29 @@ class timerType
         {
             durationWorkMinutes = 10
             durationWorkSeconds = 0
+            
+            minutesPicker = Array(0...120)
+            secondsPicker = Array(0...3).map({ $0 * 15 })
         }
-        if TimerId == TimersEnum.emom || TimerId == TimersEnum.tabata
+        else if TimerId == TimersEnum.emom
         {
+            minutesPicker = Array(0...60)
+            secondsPicker = Array(0...3).map({ $0 * 15 })
+            roundsPicker = Array(1...60)
+            
             durationWorkMinutes = 1
             durationWorkSeconds = 0
+        }
+        else if TimerId == TimersEnum.tabata
+        {
+            minutesPicker = Array(0...60)
+            secondsPicker = Array(0...3).map({ $0 * 15 })
+            roundsPicker = Array(1...60)
+            
+            durationWorkMinutes = 0
+            durationWorkSeconds = 20
+            durationRestMinutes = 0
+            durationRestSeconds = 20
         }
     }
 }

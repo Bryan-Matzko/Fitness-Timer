@@ -13,7 +13,9 @@ class SingleDurationTimerSetupViewController: UIViewController
     //UI Elements
     @IBOutlet weak var timerTitleLabel: UILabel!
     @IBOutlet weak var timerInstructionLabel: UILabel!
+    
     @IBOutlet weak var singleTimerDurationTextField: UITextField!
+    
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
@@ -36,26 +38,26 @@ class SingleDurationTimerSetupViewController: UIViewController
     
     func setupSingleTimerInformation()
     {
+        createDurationPicker()
+        createToolbar()
+        updateTextField()
+    }
+    
+    func setupSelectedTimer()
+    {
         timerTitleLabel.text = selectedTimer.Title
         timerInstructionLabel.text = selectedTimer.Instructions
         
-        createDurationPicker()
-        
         selectedTimer.durationWorkMinutes = 10
         selectedTimer.durationWorkSeconds = 0
-        
-        singleTimerDurationTextField.text = "10 Minutes"
-        singleTimerDurationTextField.inputView = durationPicker
-        
-        createToolbar()
     }
     
     func createDurationPicker()
     {
         durationPicker.delegate = self
         durationPicker.selectRow(10, inComponent: 0, animated: false)
-        
         durationPicker.backgroundColor = .black
+        singleTimerDurationTextField.inputView = durationPicker
     }
     
     func createToolbar()
@@ -77,11 +79,6 @@ class SingleDurationTimerSetupViewController: UIViewController
     @objc func dismissKeyboard()
     {
         view.endEditing(true)
-    }
-    
-    @IBAction func helpButton(_ sender: Any)
-    {
-        //Tool tip to give directions
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

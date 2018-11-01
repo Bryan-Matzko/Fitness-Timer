@@ -22,33 +22,13 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
         {
             return selectedTimer.minutesPicker.count
         }
-        else if component == 1 || component == 3
-        {
-            return 1
-        }
-        else
+        else if component == 2
         {
             return selectedTimer.secondsPicker.count
         }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        if component == 0
-        {
-            return "\(selectedTimer.minutesPicker[row])"
-        }
-        else if component == 1
-        {
-            return "min"
-        }
-        else if component == 2
-        {
-            return "\(selectedTimer.secondsPicker[row])"
-        }
         else
         {
-            return "sec"
+            return 1
         }
     }
     
@@ -61,22 +41,20 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
         {
             selectedTimer.durationWorkSeconds = secondsList[row]
         }
-        
         updateTextField()
     }
     
     func updateTextField()
     {
         var textField = String()
-        var selectedMinutes = selectedTimer.durationWorkMinutes
+        let selectedMinutes = selectedTimer.durationWorkMinutes
         let selectedSeconds = selectedTimer.durationWorkSeconds
         
         if selectedMinutes == 0 && selectedSeconds == 0
         {
             durationPicker.selectRow(1, inComponent: 0, animated: true)
-            selectedMinutes = 1
             selectedTimer.durationWorkMinutes = 1
-            textField = "\(selectedMinutes) min"
+            textField = "1 min"
         }
         else if selectedSeconds == 0
         {
@@ -85,6 +63,12 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
         else if selectedMinutes == 0
         {
             textField = "\(selectedSeconds) sec"
+        }
+        else if selectedMinutes == selectedTimer.minutesPicker[selectedTimer.minutesPicker.count-1]
+        {
+            selectedTimer.durationWorkSeconds = 0
+            durationPicker.selectRow(0, inComponent: 2, animated: true)
+            textField = "\(selectedMinutes) min"
         }
         else
         {
@@ -107,10 +91,6 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
             label = UILabel()
         }
         
-        label.textColor = .white
-        label.textAlignment = .center
-        label.font = UIFont(name: "Helvetica Neue", size: 20)
-        
         if component == 0
         {
             label.text = "\(minutesList[row])"
@@ -127,6 +107,10 @@ extension SingleDurationTimerSetupViewController: UIPickerViewDelegate, UIPicker
         {
             label.text = "sec"
         }
+        
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont(name: "Helvetica Neue", size: 20)
         return label
     }
 }

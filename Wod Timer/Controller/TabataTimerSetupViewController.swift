@@ -14,7 +14,6 @@ class TabataTimerSetupViewController: UIViewController
     @IBOutlet weak var timerTitleLabel: UILabel!
     @IBOutlet weak var timerInstructionLabel: UILabel!
     
-    //Picker associated text fields
     @IBOutlet weak var workDurationTextField: UITextField!
     @IBOutlet weak var restDurationTextField: UITextField!
     @IBOutlet weak var roundsTextField: UITextField!
