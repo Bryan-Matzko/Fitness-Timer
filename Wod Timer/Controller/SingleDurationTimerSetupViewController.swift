@@ -16,7 +16,6 @@ class SingleDurationTimerSetupViewController: UIViewController
     
     @IBOutlet weak var singleTimerDurationTextField: UITextField!
     
-    @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
     //Timer setup pickers
@@ -30,9 +29,9 @@ class SingleDurationTimerSetupViewController: UIViewController
         super.viewDidLoad()
         
         startButton.styleStartButton(frameHeight: self.view.frame.height)
-        
         singleTimerDurationTextField.styleTextFields()
         
+        setupSelectedTimer()
         setupSingleTimerInformation()
     }
     

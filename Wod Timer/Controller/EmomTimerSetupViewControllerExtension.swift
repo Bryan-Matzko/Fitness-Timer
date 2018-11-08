@@ -63,7 +63,7 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func updateTextField()
     {
-        var textField = String()
+        var text = String()
         let selectedMinutes = selectedTimer.durationWorkMinutes
         let selectedSeconds = selectedTimer.durationWorkSeconds
         
@@ -71,22 +71,22 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
         {
             durationPicker.selectRow(1, inComponent: 0, animated: true)
             selectedTimer.durationWorkMinutes = 1
-            textField = "\(1) min"
+            text = "\(1) min"
         }
         else if selectedSeconds == 0
         {
-            textField = "\(selectedMinutes) min"
+            text = "\(selectedMinutes) min"
         }
         else if selectedMinutes == 0
         {
-            textField = "\(selectedSeconds) sec"
+            text = "\(selectedSeconds) sec"
         }
         else
         {
-            textField = "\(selectedMinutes) min \(selectedSeconds) sec"
+            text = "\(selectedMinutes) min \(selectedSeconds) sec"
         }
         
-        intervalDurationTextField.text = textField
+        intervalDurationTextField.text = text
         durationTextField.text = createTotalDurationFromRounds()
     }
     
@@ -97,10 +97,6 @@ extension EmomTimerSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
         if let view = view as? UILabel
         {
             label = view
-        }
-        else
-        {
-            label = UILabel()
         }
         
         label.textColor = .white

@@ -14,16 +14,18 @@ class ViewController: UIViewController
     @IBOutlet weak var amrapButton: UIButton!
     @IBOutlet weak var emomButton: UIButton!
     @IBOutlet weak var tabataButton: UIButton!
+    @IBOutlet weak var CombineTimerButton: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         //Create background colour, round edges
-        amrapButton.createButtonGradient(startColour: colours.white , endColour: colours.blue)
-        forTimeButton.createButtonGradient(startColour: colours.white , endColour: colours.blue)
-        emomButton.createButtonGradient(startColour: colours.white , endColour: colours.blue)
-        tabataButton.createButtonGradient(startColour: colours.white , endColour: colours.blue)
+        amrapButton.createButtonGradient(startColour: colours.white, endColour: colours.blue)
+        forTimeButton.createButtonGradient(startColour: colours.white, endColour: colours.blue)
+        emomButton.createButtonGradient(startColour: colours.white, endColour: colours.blue)
+        tabataButton.createButtonGradient(startColour: colours.white, endColour: colours.blue)
+        CombineTimerButton.createButtonGradient(startColour: colours.white, endColour: colours.blue)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

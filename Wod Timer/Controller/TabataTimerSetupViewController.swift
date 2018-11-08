@@ -18,7 +18,6 @@ class TabataTimerSetupViewController: UIViewController
     @IBOutlet weak var restDurationTextField: UITextField!
     @IBOutlet weak var roundsTextField: UITextField!
     
-    @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
     //Timer setup pickers

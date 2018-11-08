@@ -17,7 +17,6 @@ class EmomTimerSetupViewController: UIViewController
     @IBOutlet weak var intervalDurationTextField: UITextField!
     @IBOutlet weak var durationTextField: UITextField!
     
-    @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
     //Timer setup pickers
