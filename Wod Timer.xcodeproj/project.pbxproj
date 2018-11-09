@@ -26,6 +26,13 @@
 		73F08CE4216180E5004B1B89 /* TimerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE3216180E5004B1B89 /* TimerType.swift */; };
 		73F08CE621618121004B1B89 /* SingleDurationTimerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE521618121004B1B89 /* SingleDurationTimerSetupViewController.swift */; };
 		73F08CE921618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F08CE821618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift */; };
+		73F0A7E52195035C007A47EA /* TimerPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0A7E42195035C007A47EA /* TimerPopupViewController.swift */; };
+		73F0A7E721950B47007A47EA /* MultiTimerAmrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0A7E621950B47007A47EA /* MultiTimerAmrapViewController.swift */; };
+		73F0A7E921950BA9007A47EA /* MultiTimerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0A7E821950BA9007A47EA /* MultiTimerSetupViewController.swift */; };
+		73F0A7EC21950D7F007A47EA /* MultiTimerSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F0A7EA21950D7F007A47EA /* MultiTimerSelector.storyboard */; };
+		73F0A7F021951545007A47EA /* TimerPopupViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0A7EF21951545007A47EA /* TimerPopupViewControllerExtension.swift */; };
+		73F0A7F221951A65007A47EA /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0A7F121951A65007A47EA /* NotificationNameExtension.swift */; };
+		73F0A7F4219525BF007A47EA /* MultiTimerAmrapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F0A7F3219525BF007A47EA /* MultiTimerAmrapViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +57,13 @@
 		73F08CE3216180E5004B1B89 /* TimerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerType.swift; sourceTree = "<group>"; };
 		73F08CE521618121004B1B89 /* SingleDurationTimerSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDurationTimerSetupViewController.swift; sourceTree = "<group>"; };
 		73F08CE821618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDurationTimerSetupViewControllerExtension.swift; sourceTree = "<group>"; };
+		73F0A7E42195035C007A47EA /* TimerPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPopupViewController.swift; sourceTree = "<group>"; };
+		73F0A7E621950B47007A47EA /* MultiTimerAmrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTimerAmrapViewController.swift; sourceTree = "<group>"; };
+		73F0A7E821950BA9007A47EA /* MultiTimerSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTimerSetupViewController.swift; sourceTree = "<group>"; };
+		73F0A7EB21950D7F007A47EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Wod Timer/View/Base.lproj/MultiTimerSelector.storyboard"; sourceTree = "<group>"; };
+		73F0A7EF21951545007A47EA /* TimerPopupViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPopupViewControllerExtension.swift; sourceTree = "<group>"; };
+		73F0A7F121951A65007A47EA /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
+		73F0A7F3219525BF007A47EA /* MultiTimerAmrapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTimerAmrapViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +82,7 @@
 			children = (
 				73E2034A21837BED005FFC12 /* CreateQueueFromTimer.swift */,
 				73F08CDF21618091004B1B89 /* UIViewExtension.swift */,
+				73F0A7F121951A65007A47EA /* NotificationNameExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -117,6 +132,7 @@
 			children = (
 				73F08CD221617EDA004B1B89 /* LaunchScreen.storyboard */,
 				73F08CCD21617ED8004B1B89 /* Main.storyboard */,
+				73F0A7EA21950D7F007A47EA /* MultiTimerSelector.storyboard */,
 				73F08CD021617EDA004B1B89 /* Assets.xcassets */,
 			);
 			path = View;
@@ -127,15 +143,36 @@
 			children = (
 				73F08CC921617ED8004B1B89 /* AppDelegate.swift */,
 				73F08CCB21617ED8004B1B89 /* ViewController.swift */,
+				739595F62161BA8900468716 /* RunTimerViewController.swift */,
+				73F0A7ED21950E3C007A47EA /* SingleTimerViewControllers */,
+				73F0A7EE21950E59007A47EA /* MultipleTimerViewControllers */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		73F0A7ED21950E3C007A47EA /* SingleTimerViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				73F08CE521618121004B1B89 /* SingleDurationTimerSetupViewController.swift */,
 				73F08CE821618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift */,
 				739595EE2161AC7000468716 /* EmomTimerSetupViewController.swift */,
 				739595F02161AC8F00468716 /* EmomTimerSetupViewControllerExtension.swift */,
 				739595F22161ACBA00468716 /* TabataTimerSetupViewController.swift */,
 				739595F42161ACCE00468716 /* TabataTimerSetupViewControllerExtension.swift */,
-				739595F62161BA8900468716 /* RunTimerViewController.swift */,
 			);
-			path = Controller;
+			path = SingleTimerViewControllers;
+			sourceTree = "<group>";
+		};
+		73F0A7EE21950E59007A47EA /* MultipleTimerViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				73F0A7E821950BA9007A47EA /* MultiTimerSetupViewController.swift */,
+				73F0A7E42195035C007A47EA /* TimerPopupViewController.swift */,
+				73F0A7EF21951545007A47EA /* TimerPopupViewControllerExtension.swift */,
+				73F0A7E621950B47007A47EA /* MultiTimerAmrapViewController.swift */,
+				73F0A7F3219525BF007A47EA /* MultiTimerAmrapViewControllerExtension.swift */,
+			);
+			path = MultipleTimerViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73F08CD421617EDA004B1B89 /* LaunchScreen.storyboard in Resources */,
+				73F0A7EC21950D7F007A47EA /* MultiTimerSelector.storyboard in Resources */,
 				73F08CD121617EDA004B1B89 /* Assets.xcassets in Resources */,
 				73F08CCF21617ED8004B1B89 /* Main.storyboard in Resources */,
 			);
@@ -210,17 +248,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F0A7F221951A65007A47EA /* NotificationNameExtension.swift in Sources */,
 				73F08CE021618091004B1B89 /* UIViewExtension.swift in Sources */,
+				73F0A7E52195035C007A47EA /* TimerPopupViewController.swift in Sources */,
 				739595F32161ACBA00468716 /* TabataTimerSetupViewController.swift in Sources */,
 				73F08CCC21617ED8004B1B89 /* ViewController.swift in Sources */,
 				73F08CE621618121004B1B89 /* SingleDurationTimerSetupViewController.swift in Sources */,
 				73E2034821837AC9005FFC12 /* Queue.swift in Sources */,
+				73F0A7E921950BA9007A47EA /* MultiTimerSetupViewController.swift in Sources */,
 				739595F72161BA8900468716 /* RunTimerViewController.swift in Sources */,
 				73F08CE921618D1D004B1B89 /* SingleDurationTimerSetupViewControllerExtension.swift in Sources */,
+				73F0A7F4219525BF007A47EA /* MultiTimerAmrapViewControllerExtension.swift in Sources */,
 				739595EF2161AC7000468716 /* EmomTimerSetupViewController.swift in Sources */,
 				739595F12161AC8F00468716 /* EmomTimerSetupViewControllerExtension.swift in Sources */,
+				73F0A7F021951545007A47EA /* TimerPopupViewControllerExtension.swift in Sources */,
 				739595F52161ACCE00468716 /* TabataTimerSetupViewControllerExtension.swift in Sources */,
 				73F08CCA21617ED8004B1B89 /* AppDelegate.swift in Sources */,
+				73F0A7E721950B47007A47EA /* MultiTimerAmrapViewController.swift in Sources */,
 				73E2034D21837C87005FFC12 /* SecondsRepeatsPair.swift in Sources */,
 				73E2034B21837BED005FFC12 /* CreateQueueFromTimer.swift in Sources */,
 				73F08CE2216180AC004B1B89 /* Constants.swift in Sources */,
@@ -246,6 +290,14 @@
 				73F08CD321617EDA004B1B89 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		73F0A7EA21950D7F007A47EA /* MultiTimerSelector.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73F0A7EB21950D7F007A47EA /* Base */,
+			);
+			name = MultiTimerSelector.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

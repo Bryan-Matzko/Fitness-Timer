@@ -16,3 +16,20 @@ enum TimersEnum
     case tabata
     case none
 }
+
+func convertTimersEnumToString(timerEnum : TimersEnum) -> String
+{
+    switch timerEnum
+    {
+    case TimersEnum.amrap:
+        return "AMRAP"
+    case TimersEnum.forTime:
+        return "For Time"
+    case TimersEnum.emom:
+        return "EMOM"
+    case TimersEnum.tabata:
+        return "Tabata"
+    default:
+        return "None"
+    }
+}
