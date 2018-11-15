@@ -13,7 +13,7 @@ func createQueue(timerInfo: timerType) -> Queue<SecondsRepeatsPair>
     var returnQueue = Queue<SecondsRepeatsPair>()
     var totalSeconds = Int()
     
-    if timerInfo.TimerId == TimersEnum.amrap || timerInfo.TimerId == TimersEnum.amrap
+    if timerInfo.TimerId == TimersEnum.amrap || timerInfo.TimerId == TimersEnum.forTime
     {
         totalSeconds = timerInfo.durationWorkMinutes * 60 + timerInfo.durationWorkSeconds
         

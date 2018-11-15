@@ -28,6 +28,14 @@ struct Queue<T> {
         }
     }
     
+    mutating func enqueue(other: Queue<T>)
+    {
+        for item in other.list
+        {
+            list.append(item)
+        }
+    }
+    
     func peek() -> T?
     {
         if !list.isEmpty

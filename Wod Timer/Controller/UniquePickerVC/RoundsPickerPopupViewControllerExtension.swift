@@ -1,15 +1,15 @@
 //
-//  MultiTimerAmrapViewControllerExtension.swift
+//  RoundsPickerPopupViewControllerExtension.swift
 //  Wod Timer
 //
-//  Created by Bryan Matzko on 2018-11-08.
+//  Created by Bryan Matzko on 2018-11-11.
 //  Copyright © 2018 Bryan Matzko. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-extension MultiTimerAmrapViewController: UIPickerViewDelegate, UIPickerViewDataSource
+extension RoundsPickerPopupViewController: UIPickerViewDelegate, UIPickerViewDataSource
 {
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
@@ -52,7 +52,7 @@ extension MultiTimerAmrapViewController: UIPickerViewDelegate, UIPickerViewDataS
         
         if selectedMinutes == 0 && selectedSeconds == 0
         {
-            durationPicker.selectRow(1, inComponent: 0, animated: true)
+            roundsPicker.selectRow(1, inComponent: 0, animated: true)
             selectedTimer.durationWorkMinutes = 1
             textField = "1 min"
         }
@@ -67,7 +67,7 @@ extension MultiTimerAmrapViewController: UIPickerViewDelegate, UIPickerViewDataS
         else if selectedMinutes == selectedTimer.minutesPicker[selectedTimer.minutesPicker.count-1]
         {
             selectedTimer.durationWorkSeconds = 0
-            durationPicker.selectRow(0, inComponent: 2, animated: true)
+            roundsPicker.selectRow(0, inComponent: 2, animated: true)
             textField = "\(selectedMinutes) min"
         }
         else
